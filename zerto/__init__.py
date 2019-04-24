@@ -61,7 +61,7 @@ from vra import VRA                         # NOQA
 from zorg import ZORG                       # NOQA
 from serviceprofile import ServiceProfile   # NOQA
 from virtualization_site import VirtualizationSite  # NOQA
-
+from datastore import Datastore             # NOQA
 
 class Zerto(object):
 
