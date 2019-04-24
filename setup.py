@@ -24,7 +24,7 @@ setup(
     description='Module for calling the Zerto api',
     author='Kees Bos',
     author_email='k.bos@capitar.com',
-    url='https://github.com/keesbos/pyzerto',
+    url='https://github.com/fbnewtz-vcore/pyzerto',
     long_description=read('README.md'),
     classifiers=[
         'Development Status :: 3 - Alpha',
