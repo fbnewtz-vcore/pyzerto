@@ -263,15 +263,14 @@ class Zerto(object):
         req = self.get_request('v1/virtualizationsites')
         return list([VirtualizationSite(**res) for res in req.json()])
 
-    def get_datastore(self, siteid=None):
-        if siteid is not None:
+    def get_datastore(self, dsid=None):
+        if dsid is not None:
             req = self.get_request(
                 'v1/datastores/{0}'.format(siteid))
-#            print(req.json())
-            for res in req.json():
-                print(res)
-#            return list([Datastore(**res) for res in req.json()])
+            return list([Datastore(**res) for res in req.json()])
         req = self.get_request('v1/datastores')            
+        for res in req.json():
+            print(res)
         return list([Datastore(**res) for res in req.json()])
 
     def get_vm(self, vmid=None, **kwargs):
