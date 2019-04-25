@@ -268,6 +268,8 @@ class Zerto(object):
             req = self.get_request(
                 'v1/datastores/{0}'.format(siteid))
 #            print(req.json())
+            for res in req.json():
+                print(res)
 #            return list([Datastore(**res) for res in req.json()])
         req = self.get_request('v1/datastores')            
         return list([Datastore(**res) for res in req.json()])
