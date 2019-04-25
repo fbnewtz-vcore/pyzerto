@@ -267,7 +267,7 @@ class Zerto(object):
         if siteid is not None:
             req = self.get_request(
                 'v1/datastores/{0}'.format(siteid))
-            print(req.json())
+#            print(req.json())
 #            return list([Datastore(**res) for res in req.json()])
         req = self.get_request('v1/datastores')            
         return list([Datastore(**res) for res in req.json()])
