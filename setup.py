@@ -20,7 +20,7 @@ def read(fname):
 
 setup(
     name='Zerto',
-    version='0.3dev',
+    version='0.4dev',
     description='Module for calling the Zerto api',
     author='Kees Bos',
     author_email='k.bos@capitar.com',
