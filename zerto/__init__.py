@@ -266,10 +266,11 @@ class Zerto(object):
     def get_datastore(self, siteid=None):
         if siteid is not None:
             req = self.get_request(
-                'v1/virtualizationsites/{0}/datastores'.format(siteid))
-            return Datastore(**req.json())
-        else:
-            return "siteid cannot be empty"            
+                'v1/datastores/{0}'.format(siteid))
+                print(req.json())
+#            return list([Datastore(**res) for res in req.json()])
+        req = self.get_request('v1/datastores')            
+        return list([Datastore(**res) for res in req.json()])
 
     def get_vm(self, vmid=None, **kwargs):
         '''Retrieve specific vm or all'''
