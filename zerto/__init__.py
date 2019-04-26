@@ -273,7 +273,7 @@ class Zerto(object):
         req = self.get_request('v1/datastores')
         for res in json.loads(req.json()):
             print(res)
-        return list([Datastore(**res) for res in req.json()])
+        return list([Datastore(*res) for res in req.json()])
 
     def get_vm(self, vmid=None, **kwargs):
         '''Retrieve specific vm or all'''
