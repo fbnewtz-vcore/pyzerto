@@ -268,7 +268,7 @@ class Zerto(object):
     def get_datastore(self, dsid=None):
         if dsid is not None:
             req = self.get_request(
-                'v1/datastores/{0}'.format(siteid))
+                'v1/datastores/{0}'.format(dsid))
             return list([Datastore(**res) for res in req.json()])
         req = self.get_request('v1/datastores')
         for res in req.json():
