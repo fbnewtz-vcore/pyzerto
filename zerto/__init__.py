@@ -212,7 +212,7 @@ class Zerto(object):
         req = self.get_request('v1/peersites', params=(kwargs or None))
         return list([PeerSite(**res) for res in req.json()])
 
-    def get_datastore(self, dsid=None, **kwargs):
+    def get_datastore(self, dsid=None):
         if dsid is not None:
             req = self.get_request(
                 'v1/datastores/{0}'.format(dsid))

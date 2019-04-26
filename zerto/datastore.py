@@ -6,7 +6,7 @@ from zertoobject import ZertoObject
 
 class Datastore(ZertoObject):
 
-    def __init__(self, **args):
+    def __init__(self, **kwargs):
         self.values = kwargs
         self.name = kwargs['DatastoreName']
         self.identifier = kwargs['DatastoreIdentifier']
