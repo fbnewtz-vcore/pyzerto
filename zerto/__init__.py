@@ -261,6 +261,8 @@ class Zerto(object):
                 'v1/virtualizationsites/{0}'.format(siteid))
             return VirtualizationSite(**req.json())
         req = self.get_request('v1/virtualizationsites')
+        for res in req.json():
+            print(res)
         return list([VirtualizationSite(**res) for res in req.json()])
 
     def get_datastore(self, dsid=None):
@@ -268,7 +270,7 @@ class Zerto(object):
             req = self.get_request(
                 'v1/datastores/{0}'.format(siteid))
             return list([Datastore(**res) for res in req.json()])
-        req = self.get_request('v1/datastores')            
+        req = self.get_request('v1/datastores')
         for res in req.json():
             print(res)
         return list([Datastore(**res) for res in req.json()])
