@@ -8,8 +8,8 @@ class Datastore(ZertoObject):
 
     def __init__(self, **kwargs):
         self.values = kwargs
-        self.name = kwargs['DatastoreName']
-        self.identifier = kwargs['DatastoreIdentifier']
+        self.name = kwargs.get('DatastoreName')
+        self.identifier = kwargs('DatastoreIdentifier')
 #        self.type = kwargs.get('Type')
 #        self.capacityinbytes = kwargs.get('CapactiyInBytes')
 #        self.freeinbytes = kwargs.get('FreeInBytes')
