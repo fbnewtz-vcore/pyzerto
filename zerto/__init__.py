@@ -212,6 +212,14 @@ class Zerto(object):
         req = self.get_request('v1/peersites', params=(kwargs or None))
         return list([PeerSite(**res) for res in req.json()])
 
+    def get_datastore(self, dsid=None, **kwargs):
+        if dsid is not None:
+            req = self.get_request(
+                'v1/datastores/{0}'.format(dsid))
+            return Datastore(**req.json())
+        req = self.get_request('v1/datastores')
+        return list([Datastore(**res) for res in req.json()])
+
     def get_alert(self, alert=None):
         if alert is not None:
             req = self.get_request('v1/alerts/{0}'.format(alert))
@@ -264,16 +272,6 @@ class Zerto(object):
         for res in req.json():
             print(res)
         return list([VirtualizationSite(**res) for res in req.json()])
-
-    def get_datastore(self, dsid=None):
-        if dsid is not None:
-            req = self.get_request(
-                'v1/datastores/{0}'.format(dsid))
-            return Datastore(**req.json)
-        req = self.get_request('v1/datastores')
-        for res in json.loads(req.json()):
-            print(res)
-        return list([Datastore(**res) for res in req.json()])
 
     def get_vm(self, vmid=None, **kwargs):
         '''Retrieve specific vm or all'''
