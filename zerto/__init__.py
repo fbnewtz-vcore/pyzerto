@@ -274,7 +274,7 @@ class Zerto(object):
             print(res)
         return list([VirtualizationSite(**res) for res in req.json()])
 
-    def get_virtsite_vms(self, siteid=None)
+    def get_virtsite_vms(self, siteid=None):
         if siteid is not None:
             req = self.get_request(
                 'v1/virtualizationsites/{0}/vms'.format(siteid))
