@@ -62,6 +62,7 @@ from zorg import ZORG                       # NOQA
 from serviceprofile import ServiceProfile   # NOQA
 from virtualization_site import VirtualizationSite  # NOQA
 from datastore import Datastore             # NOQA
+from virtsitevms import VirtSiteVMs         # NOQA
 
 class Zerto(object):
 
@@ -272,6 +273,13 @@ class Zerto(object):
         for res in req.json():
             print(res)
         return list([VirtualizationSite(**res) for res in req.json()])
+
+    def get_virtsite_vms(self, siteid=None)
+        if siteid is not None:
+            req = self.get_request(
+                'v1/virtualizationsites/{0}/vms'.format(siteid))
+            return VirtSiteVMs(**req.json())
+        return Null
 
     def get_vm(self, vmid=None, **kwargs):
         '''Retrieve specific vm or all'''
