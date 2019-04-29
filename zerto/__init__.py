@@ -297,6 +297,12 @@ class Zerto(object):
         req = self.get_request('v1/vpgs', params=(kwargs or None))
         return list([VPG(**res) for res in req.json()])
 
+    def post_vpg(self, data, **kwargs):
+        '''Create a VPG'''
+        if data is not None:
+            req = self.post_request('v1/vpgs', data)
+            return VPG(**req.json())
+
     def get_vra(self, vraid=None, **kwargs):
         if vraid is not None:
             req = self.get_request('v1/vras/{0}'.format(vraid))
