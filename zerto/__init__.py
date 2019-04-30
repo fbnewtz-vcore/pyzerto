@@ -316,7 +316,7 @@ class Zerto(object):
                 data = '{}'
                 req = self.post_request('v1/vpgsettings', data)
                 return vpgSettings(**req.json())
-        else:
+#        else:
             
     def get_vra(self, vraid=None, **kwargs):
         if vraid is not None:
