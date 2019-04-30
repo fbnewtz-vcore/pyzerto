@@ -309,13 +309,11 @@ class Zerto(object):
         '''Get VPG Settings Data'''
         
 
-    def post_vpg_settings(self, data=None, vpgid=None, **kwargs):
+    def post_vpg_settings(self, data=None, **kwargs):
         '''POST VPG Settings'''
-        if data == None:
-            if vpgid == None:
-                data = '{}'
-                req = self.post_request('v1/vpgSettings', data)
-                return vpgSettings(**req.json())
+        if data != None:
+            req = self.post_request('v1/vpgSettings', data)
+            return vpgSettings(**req.json())
 #        else:
             
     def get_vra(self, vraid=None, **kwargs):
