@@ -63,6 +63,8 @@ from serviceprofile import ServiceProfile   # NOQA
 from virtualization_site import VirtualizationSite  # NOQA
 from datastore import Datastore             # NOQA
 from virtsitevms import VirtSiteVMs         # NOQA
+from vpgsettings import vpgSettings         # NOQA
+
 
 class Zerto(object):
 
@@ -303,6 +305,19 @@ class Zerto(object):
             req = self.post_request('v1/vpgs', data)
             return VPG(**req.json())
 
+    def get_vpg_settings(self, data=None, vpgid=None, **kwargs):
+        '''Get VPG Settings Data'''
+        
+
+    def post_vpg_settings(self, data=None, vpgid=None, **kwargs):
+        '''POST VPG Settings'''
+        if data == None:
+            if vpgid == None:
+                data = '{}'
+                req = self.post_request('v1/vpgsettings', data)
+                return vpgSettings(**req.json())
+        else:
+            
     def get_vra(self, vraid=None, **kwargs):
         if vraid is not None:
             req = self.get_request('v1/vras/{0}'.format(vraid))
