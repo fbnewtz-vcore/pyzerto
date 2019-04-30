@@ -314,7 +314,7 @@ class Zerto(object):
         if data == None:
             if vpgid == None:
                 data = '{}'
-                req = self.post_request('v1/vpgsettings', data)
+                req = self.post_request('v1/vpgSettings', data)
                 return vpgSettings(**req.json())
 #        else:
             
