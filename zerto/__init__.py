@@ -146,8 +146,8 @@ class Zerto(object):
     def put_request(self, path, data=None, **kwargs):
         return self._do_request('PUT', path, data, **kwargs)
 
-    def delete_request(self, path, **kwargs):
-        return self._do_request('DELETE', path, **kwargs)
+    def delete_request(self, path, data=None, **kwargs):
+        return self._do_request('DELETE', path, data, **kwargs)
 
     def get_apis(self):
         headers = {'content-type': 'application/json'}
